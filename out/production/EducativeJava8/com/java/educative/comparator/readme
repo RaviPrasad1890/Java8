@@ -1,0 +1,5 @@
+Comparator is an interface that is used to define how a collection must be sorted.
+In Java 7, it had just 2 methods – compare() and equals().
+The enhanced Comparator in Java 8 now has 19 methods.
+However, the Comparator is still a functional interface as it has only one abstract method, i.e., compare().
+Comparator now supports declarations via lambda expressions as it is a Functional Interface.

@@ -1,0 +1,49 @@
+Mutable reductions
+The mutable reductions collect the desired results into a mutable container object,
+such as a java.util.Collection or an array.
+
+The mutable reduction is achieved through the collect() method.
+It is one of the Java 8 Stream API’s terminal methods.
+
+There are two overloaded versions of the collect() method:
+1. collect(Collector<? super T,A,R> collector)
+2. <R> R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner)
+
+This lesson focuses on the collect() method which takes an instance of Collector as input.
+
+We have two options:
+1. We can create our own Collector implementation.
+2. We can use the predefined implementations provided by the Collectors class.
+
+Before discussing the collect() method further,
+we will first discuss the Collectors class in detail and
+look at how its methods are used with the collect() method to reduce streams.
+
+Collectors
+Collectors is a final class that extends the Object class.
+It provides the most common mutable reduction operations that could be required by
+application developers as individual static methods.
+
+Some of the important reduction operations already implemented in the Collectors class are listed below:
+
+Method	                Purpose
+toList()	            Collects stream elements in a List.
+toSet()	                Collects stream elements in a Set.
+toMap()	                Returns a Collector that accumulates elements into a
+                        Map whose keys and values are the result of applying the
+                        provided mapping functions to the input elements.
+
+collectingAndThen()	    Collects stream elements and then transforms them using a Function
+
+summingDouble(),
+summingLong(),
+summingInt()	        Sums-up stream elements after mapping them to a Double/Long/Integer
+                        value using specific type Function
+
+reducing()	            Reduces elements of stream based on the BinaryOperator function provided
+partitioningBy()	    Partitions stream elements into a Map based on the Predicate provided
+counting()	            Counts the number of stream elements
+groupingBy()	        Produces Map of elements grouped by grouping criteria provided
+mapping()	            Applyies a mapping operation to all stream elements being collected
+joining()	            For concatenation of stream elements into a single String
+minBy()/maxBy()	        Finds the minimum/maximum of all stream elements based on the Comparator provided
